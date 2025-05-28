@@ -90,7 +90,7 @@ app.post("/uploads", checkAuth, upload.array("image"), async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) return console.warn(`Произошла ошибка ${err}`);
   console.log("Server Work!");
 });
