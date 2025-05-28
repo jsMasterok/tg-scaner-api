@@ -24,11 +24,15 @@ import {
 import checkAuth from "./utils/checkAuth.js";
 
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("DB OK!");
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 10000, // ← лучше ограничить явно
   })
-  .catch((e) => console.log(e));
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => {
+    console.error("MongoDB connection error:", err.message);
+  });
 
 const app = express();
 
