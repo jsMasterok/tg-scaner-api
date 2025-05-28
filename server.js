@@ -1,4 +1,4 @@
-import "dotenv/config";
+// import "dotenv/config";
 
 import express from "express";
 import mongoose from "mongoose";
@@ -24,11 +24,7 @@ import {
 import checkAuth from "./utils/checkAuth.js";
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 10000, // ← лучше ограничить явно
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => {
     console.error("MongoDB connection error:", err.message);
