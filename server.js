@@ -37,15 +37,7 @@ mongoose
 const app = express();
 
 // ВАЖНО: сначала cors, потом всё остальное
-app.use(
-  cors({
-    origin: "*", // или массив, если нужно
-    credentials: false,
-  })
-);
-// app.options("*", cors());
-app.options("/", cors());
-
+app.use(cors());
 app.use(express.json());
 
 const storage = multer.diskStorage({
