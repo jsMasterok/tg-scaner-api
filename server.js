@@ -24,7 +24,9 @@ import {
 import checkAuth from "./utils/checkAuth.js";
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(
+    "mongodb+srv://scaner-admin:5m32yyoo@tg-scaner.2to4foo.mongodb.net/scaner?retryWrites=true&w=majority"
+  )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => {
     console.error("MongoDB connection error:", err.message);
